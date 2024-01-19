@@ -2,6 +2,10 @@ package java10;
 
 public class SuperHero extends Hero {
 	boolean flying;
+	
+	public SuperHero () {
+		System.out.println("SuperHeroのコンストラクタが動作！");
+	}
 
 	// 飛ぶ
 	public void fly() {
@@ -13,5 +17,19 @@ public class SuperHero extends Hero {
 	public void land() {
 		this.flying = false;
 		System.out.println("着地した！");
+	}
+	
+	// 逃げる
+	public void run() {
+		System.out.println(this.name + "は撤退した！");
+	}
+	
+	// 戦う
+	public void attack(Matango m) {
+		// 親クラス（Hero）のattackメソッドを呼び出せる
+		super.attack(m);
+		if (this.flying) {
+			super.attack(m);
+		}
 	}
 }
